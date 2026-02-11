@@ -4,8 +4,8 @@ public class F1NewsPage extends NewsPage{
     private final int basePrice = 100;
     private boolean isFerrariOrMercedes;
 
-    public F1NewsPage(String headline, String text, int punctuation, boolean isFerrariOrMercedes) {
-        super(headline, text, punctuation);
+    public F1NewsPage(String headline, String text, int punctuation, boolean isFerrariOrMercedes, Editor editor) {
+        super(headline, text, punctuation, editor);
         this.isFerrariOrMercedes = isFerrariOrMercedes;
     }
 

@@ -4,8 +4,8 @@ public class TenisNewsPage extends NewsPage{
     private final int basePrice = 150;
     private boolean isFedererOrNadalOrDjokovik;
 
-    public TenisNewsPage(String headline, String text, int punctuation, boolean isFedererOrNadalOrDjokovik) {
-        super(headline, text, punctuation);
+    public TenisNewsPage(String headline, String text, int punctuation, boolean isFedererOrNadalOrDjokovik, Editor editor) {
+        super(headline, text, punctuation, editor);
         this.isFedererOrNadalOrDjokovik = isFedererOrNadalOrDjokovik;
     }
 

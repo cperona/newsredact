@@ -4,8 +4,8 @@ public class MotoNewsPage extends NewsPage{
     private final int basePrice = 100;
     private boolean isHondaOrYamaha;
 
-    public MotoNewsPage(String headline, String text, int punctuation, boolean isHondaOrYamaha) {
-        super(headline, text, punctuation);
+    public MotoNewsPage(String headline, String text, int punctuation, boolean isHondaOrYamaha, Editor editor) {
+        super(headline, text, punctuation, editor);
         this.isHondaOrYamaha = isHondaOrYamaha;
     }
 

@@ -5,8 +5,8 @@ public class BasketballNewsPage extends NewsPage {
     private boolean isEuroleague;
     private boolean isBarcaOrMadrid;
 
-    public BasketballNewsPage(String headline, String text, int punctuation, boolean isEuroleague, boolean isBarcaOrMadrid) {
-        super(headline, text, punctuation);
+    public BasketballNewsPage(String headline, String text, int punctuation, boolean isEuroleague, boolean isBarcaOrMadrid, Editor editor) {
+        super(headline, text, punctuation, editor);
         this.isEuroleague = isEuroleague;
         this.isBarcaOrMadrid = isBarcaOrMadrid;
     }

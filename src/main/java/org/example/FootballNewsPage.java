@@ -6,8 +6,8 @@ public class FootballNewsPage extends NewsPage{
     private boolean isBarcaOrMadrid;
     private boolean isFerranTorresOrBenzema;
 
-    public FootballNewsPage(String headline, String text, int punctuation, boolean isChampions, boolean isBarcaOrMadrid, boolean isFerranTorresOrBenzema) {
-        super(headline, text, punctuation);
+    public FootballNewsPage(String headline, String text, int punctuation, boolean isChampions, boolean isBarcaOrMadrid, boolean isFerranTorresOrBenzema, Editor editor) {
+        super(headline, text, punctuation, editor);
         this.isChampions = isChampions;
         this.isBarcaOrMadrid = isBarcaOrMadrid;
         this.isFerranTorresOrBenzema = isFerranTorresOrBenzema;

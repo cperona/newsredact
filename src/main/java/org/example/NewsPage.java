@@ -5,11 +5,13 @@ public abstract class NewsPage {
     private String text;
     private int punctuation;
     private int price = 0;
+    private Editor editor;
 
-    public NewsPage(String headline, String text, int punctuation) {
+    public NewsPage(String headline, String text, int punctuation, Editor editor) {
         this.headline = headline;
         this.text = text;
         this.punctuation = punctuation;
+        this.editor = editor;
     }
 
     public String getHeadline() {
@@ -42,6 +44,14 @@ public abstract class NewsPage {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Editor getEditor() {
+        return editor;
+    }
+
+    public void setEditor(Editor editor) {
+        this.editor = editor;
     }
 
     public abstract int calculateNewsPagePrice();
