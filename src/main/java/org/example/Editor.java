@@ -1,12 +1,14 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Editor {
     private String name;
     private final String ID;
     //"Static attribute": The same shared value for all redactors.
     private static int salary;
 
-    public Editor(String name, String ID, int salary) {
+    public Editor(String name, String ID) {
         this.name = name;
         this.ID = ID;
     }
