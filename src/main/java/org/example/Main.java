@@ -168,7 +168,8 @@ public class Main {
                 break;
             case 5:
                 System.out.println("Type the NewPage's headline to be removed: ");
-                String newsPageHeadline = sc.next();
+                sc.nextLine();
+                String newsPageHeadline = sc.nextLine();
                 newsPages.removeAll(findNewsPageByHeadline(newsPageHeadline));
                 System.out.printf("NewsPage %s removed", newsPageHeadline);
                 clearConsole();
