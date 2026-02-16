@@ -202,6 +202,13 @@ public class Main {
                 .toList();
     }
 
+    private static List<NewsPage> findNewsPageByHeadline(String headline) {
+        return newsPages
+                .stream()
+                .filter(p-> p.getHeadline().equals(headline))
+                .toList();
+    }
+
     private static void clearConsole() {
         System.out.println(System.lineSeparator().repeat(50));
     }
