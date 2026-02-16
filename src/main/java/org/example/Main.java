@@ -7,7 +7,6 @@ import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main {
     private static ArrayList<Editor> editors = new ArrayList<Editor>();
@@ -71,9 +70,10 @@ public class Main {
                 Editor editorToAddNewsPage = findEditorByName(editorToAddNewsPageName).getFirst();
 
                 System.out.println("Type the headline: ");
-                String headline = sc.next();
-                System.out.println("Type corpus");
-                String text = sc.next();
+                sc.nextLine();
+                String headline = sc.nextLine();
+                System.out.println("Type corpus: ");
+                String text = sc.nextLine();
 
                 System.out.println("What type of NewsPage is? (type 1-5): ");
                 printNewsTypes();
@@ -163,14 +163,35 @@ public class Main {
                         newsPages.add(motoNewsPage);
                         break;
                 }
+                clearConsole();
+                Main.main(null);
+                break;
+            case 6:
+                System.out.println("Type the Editor name to show their NewsPages: ");
+                System.out.println("List of all Editors: ");
+                printEditors();
+                printNewsPages(sc.next());
+                do {
+                    System.out.println("Type 0 to return: ");
+                } while (sc.nextInt() != 0);
+                clearConsole();
+                Main.main(null);
+                break;
         }
     }
 
-    private static List<Editor> findEditorByName(String editorToRemoveName) {
+    private static List<Editor> findEditorByName(String editorName) {
         return editors
                     .stream()
-                    .filter(p-> p.getName().equals(editorToRemoveName))
+                    .filter(p-> p.getName().equals(editorName))
                     .toList();
+    }
+
+    private static List<NewsPage> findNewsPageByEditor(Editor editor) {
+        return newsPages
+                .stream()
+                .filter(p-> p.getEditor().equals(editor))
+                .toList();
     }
 
     private static void clearConsole() {
@@ -199,6 +220,24 @@ public class Main {
         asciiTable.addRow("3", "Tenis");
         asciiTable.addRow("4", "F1");
         asciiTable.addRow("5", "Motocycle");
+        asciiTable.addRule();
+
+        asciiTable.setTextAlignment(TextAlignment.CENTER);
+        asciiTable.getContext().setGrid(A7_Grids.minusBarPlusEquals());
+        System.out.println(asciiTable.render());
+    }
+
+    private static void printNewsPages(String editorName) {
+        List<NewsPage> newsPageByEditor = findNewsPageByEditor(findEditorByName(editorName).getFirst());
+
+        AsciiTable asciiTable = new AsciiTable();
+        asciiTable.addRule();
+        asciiTable.addRow("Headline", "Text", "Punctuation", "Price");
+        asciiTable.addRule();
+        for (NewsPage p : newsPageByEditor) {
+            asciiTable.addRow(p.getHeadline(), p.getText(), p.getPunctuation(), p.calculateNewsPagePrice());
+            asciiTable.addRule();
+        }
 
         asciiTable.setTextAlignment(TextAlignment.CENTER);
         asciiTable.getContext().setGrid(A7_Grids.minusBarPlusEquals());
