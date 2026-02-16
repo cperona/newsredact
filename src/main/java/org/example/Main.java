@@ -166,6 +166,14 @@ public class Main {
                 clearConsole();
                 Main.main(null);
                 break;
+            case 5:
+                System.out.println("Type the NewPage's headline to be removed: ");
+                String newsPageHeadline = sc.next();
+                newsPages.removeAll(findNewsPageByHeadline(newsPageHeadline));
+                System.out.printf("NewsPage %s removed", newsPageHeadline);
+                clearConsole();
+                Main.main(null);
+                break;
             case 6:
                 System.out.println("Type the Editor name to show their NewsPages: ");
                 System.out.println("List of all Editors: ");
