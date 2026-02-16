@@ -186,6 +186,26 @@ public class Main {
                 clearConsole();
                 Main.main(null);
                 break;
+            case 7:
+                System.out.println("Type the NewsPage's headline to calculate its punctuation: ");
+                sc.nextLine();
+                System.out.printf("Punctuation: %d\n", findNewsPageByHeadline(sc.nextLine()).getFirst().getPunctuation());
+                do {
+                    System.out.println("Type 0 to return: ");
+                } while (sc.nextInt() != 0);
+                clearConsole();
+                Main.main(null);
+                break;
+            case 8:
+                System.out.println("Type the NewsPage's headline to calculate its price: ");
+                sc.nextLine();
+                System.out.printf("Price: %d\n", findNewsPageByHeadline(sc.nextLine()).getFirst().calculateNewsPagePrice());
+                do {
+                    System.out.println("Type 0 to return: ");
+                } while (sc.nextInt() != 0);
+                clearConsole();
+                Main.main(null);
+                break;
         }
     }
 
